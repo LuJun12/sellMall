@@ -1,0 +1,52 @@
+<view class="shopcart_container">
+  <view class="edit" wx:if="{{cartInfo.length>0}}">
+    <text class="edit_title">微商城</text>
+    <text wx:if="{{!isdel}}" class='edit_text' catchtap='editTap'>编辑</text>
+    <text wx:else class='edit_text' catchtap='editTap'>完成</text>
+  </view>
+  <view class="shopcart_list" wx:if="{{cartInfo.length>0}}">
+    <scroll-view class="shopcart_list_info">
+      <radio-group class="radio_group">
+        <label class="radio" wx:for="{{cartInfo}}" wx:for-item="item" wx:key="{{index}}" data-index="{{index}}">
+          <text class="select_radio {{item.active?'active':''}}" data-index="{{index}}" data-item="{{item}}" catchtap='selectTap'></text>
+          <image class="good_pic" src="{{item.imgUrl}}"></image>
+          <view class="goods_info">
+            <text class='name'>{{item.name}}</text>
+            <view class='good_text'>
+             <text class="size" wx:if="{{item.selectSize}}">尺码:{{item.selectSize}}</text>
+            <text class="size" wx:if="{{item.selectColor}}">颜色:{{item.selectColor}}</text>
+            <text class="size" wx:if="{{item.selectColour}}">花色:{{item.selectColour}}</text>
+            </view>
+            <text class="price">￥{{item.price}}</text>
+          </view>
+          <view class="add_num">
+            <view class="del" catchtap='delnum' data-num="{{item.selectNum}}" data-index="{{index}}">
+              <text>-</text>
+            </view>
+            <view class="sell_num">
+              <text>{{item.selectNum}}</text>
+            </view>
+            <view class="add" catchtap='addnum' data-num="{{item.selectNum}}" data-index="{{index}}">
+              <text>+</text>
+            </view>
+          </view>
+        </label>
+      </radio-group>
+    </scroll-view>
+  </view>
+  <view class="no_goods" wx:else>
+    <image  src="/images/cart.png"></image>
+    <text class="cart_text">购物车空空无也~~</text>
+    <navigator url="../shouye/shouye" open-type="switchTab" hover-class="other-navigator-hover" class="go_buy">去逛逛</navigator>
+  </view>
+  <view class="balance">
+    <text class="select_radio {{isactives?'active':''}}" catchtap='selectTaps'></text>
+    <text class='balance_all'>全选</text>
+    <view class="istotal" wx:if="{{isselect}}">
+      <text class='balance_text'>合计:</text>
+      <text class='balance_price'>￥{{totalPrice}}</text>
+    </view>
+    <text wx:if="{{isdel}}"  class="balance_btn {{isselect?'':'on'}}" else catchtap='del_tap'>删除</text>
+    <text wx:else  class="balance_btn {{isselect?'':'on'}}" catchtap='go_account'>去结算</text>
+  </view>
+</view>

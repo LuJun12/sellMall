@@ -1,0 +1,52 @@
+ <form bindsubmit="pay" report-submit="true">
+<view class="add_container">
+
+  <view class="add_info" catchtap='address' wx:if="{{isadd}}">
+    <image class="add_img" src="/images/ico-add-addr.png"></image>
+    <text>新增收货地址</text>
+    <image class="add_right" src="/images/arrow-right.png"></image>
+  </view>
+  <view class='address_detail' wx:else catchtap='select_address'>
+    <view class='user_info'>
+      <image src="/images/ico-addr.png"></image>
+      <text class='address_name'>{{address_name}}</text>
+      <text class='address_tel'>{{address_tel}}</text>
+    </view>
+    <view class='address_info'>
+      <text>地址:</text>
+      <text>{{address_provinceStr}}{{address_cityStr}}{{address_areaStr}}{{address_detail}}</text>
+    </view>
+  </view>
+  <view class='goods_list'>
+    <text class="goods_list_title">商品列表</text>
+    <view class='good_item' wx:for="{{buyInfo}}" wx:for-item="item" wx:key="{{}}">
+      <image src="{{item.imgUrl}}"></image>
+      <view class="good_item_info">
+        <text class="good_item_name">{{item.name}}</text>
+        <view class='good_text'>
+          <text class="size" wx:if="{{item.selectSize}}">尺码:{{item.selectSize}}</text>
+          <text class="size" wx:if="{{item.selectColor}}">颜色:{{item.selectColor}}</text>
+          <text class="size" wx:if="{{item.selectColour}}">花色:{{item.selectColour}}</text>
+        </view>
+      </view>
+      <view class="good_item_intro">
+        <text class="good_item_price">￥{{item.price}}</text>
+        <text class="good_item_num">x{{item.selectNum}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="deliver_type_container">
+    <text class="deliver_text">配送方式</text>
+    <text class="deliver_type">包邮</text>
+  </view>
+  <view class="beizhu">
+    <text>备注</text>
+    <input placeholder='如需备注请输入' name="remark"></input>
+  </view>
+</view>
+<view class="footer">
+  <text class="footer_text">合计:</text>
+  <text class="price">￥{{totalPrice}}</text>
+  <button class="get_list" formType="submit">提交订单</button>
+</view>
+</form>

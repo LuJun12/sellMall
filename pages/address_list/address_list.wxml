@@ -1,0 +1,18 @@
+<!--pages/address_list/address_list.wxml-->
+<view class='address_list'>
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" wx:for="{{address_list}}" wx:for-item="item" data-index="{{item.id}}" catchtap='selectAddress' wx:key="{{}}">
+      <view class='user_info'>
+        <radio value="" checked="{{item.isDefault?'true':''}}" />
+        <text class='address_name'>{{item.linkMan}}</text>
+        <text class='address_tel'>{{item.mobile}}</text>
+      </view>
+      <view class='address_info'>
+        <text>地址:</text>
+        <text>{{item.provinceStr}}{{item.cityStr}}{{item.areaStr}}{{item.address}}</text>
+      </view>
+      <image class='edit' src="/images/no-order.png" catchtap='edit_address' data-id="{{item.id}}"></image>
+    </label>
+  </radio-group>
+  <text class='new_address' catchtap='add'>新增地址</text>
+</view>

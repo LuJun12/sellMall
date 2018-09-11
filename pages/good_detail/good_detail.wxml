@@ -1,0 +1,134 @@
+<!--pages/good_detail/good_detail.wxml-->
+<view class="good_detail">
+  <view class="photo_list">
+    <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000" style='height:750rpx'>
+      <block wx:for="{{goodDetail.pics}}" wx:for-item="item" wx:key="{{}}">
+        <swiper-item>
+          <image class="photo" src='{{item.pic}}'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="goods">
+    <text class="goods_name">{{goodDetail.basicInfo.name}}</text>
+    <view class="good_text">
+      <text class="price">￥{{goodDetail.basicInfo.minPrice}}</text>
+      <text class='has_buy'>购买{{goodDetail.basicInfo.numberOrders}}次</text>
+      <text class="good_rate">共收到{{goodDetail.basicInfo.numberGoodReputation}}次好评</text>
+    </view>
+    <view class='share'>
+      <image src="/images/qd.png"></image>
+      <text>分享有赏</text>
+    </view>
+  </view>
+  <view class="select_size" catchtap="selectSize">
+    <text class="select_text">选择:</text>
+    <text class='size'>尺码</text>
+    <image src="/images/arrow-right.png"></image>
+  </view>
+  <view class="show_pic">
+    <text class="title">商品介绍</text>
+    <text class="pic_name">{{goodDetail.basicInfo.characteristic}}{{goodDetail.basicInfo.name}}</text>
+    <view class="pic">
+    <block wx:for="{{article.imageUrls}}" wx:for-item="imgUrl" wx:key="{{}}">
+      <image src="{{imgUrl}}"></image>
+      </block>
+    </view>
+  </view>
+  <view class="comment">
+    <view class="comment_header">
+      <text class="comment_text">大家评价</text>
+      <text class="rate_num">({{reputation.length}})</text>
+    </view>
+    <view class="comment_list">
+      <block wx:for="{{reputation}}" wx:for-item="item" wx:key="{{}}">
+        <view class='comment_item'>
+          <view class="avatar">
+            <image src="{{item.user.avatarUrl}}"></image>
+            <text>{{item.goods.goodReputationStr}}</text>
+          </view>
+          <view class="comment_content">
+            <text class="content">{{item.goods.goodReputationRemark}}</text>
+            <view class="good_info">
+              <text class="date">{{item.goods.dateReputation}}</text>
+              <text class='buy_size'>{{item.goods.property}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <view class="kefu">
+    <image src="/images/kefu.png"></image>
+    <text class="go_cart">客服</text>
+  </view>
+  <view class="kefu" catchtap='gocart'>
+    <image src="/images/cart.png"></image>
+     <text class="go_cart">购物车</text>
+     <text class="cart_num" >{{show_num}}</text>
+  </view>
+  
+  <text class="footer_list" catchtap="selectSize">加入购物车</text>
+  <text class="footer_list footer_list1" catchtap="selectSize">立即购买</text>
+</view>
+<view class="block" wx:if="{{isShow}}" catchtouchmove='true'></view>
+<view class="select_goods" wx:if="{{isShow}}" catchtouchmove='true'>
+  <view class="select_content">
+    <view class="select_header">
+      <image class="select_goods_img" src="{{goodDetail.basicInfo.pic}}"></image>
+      <view class="select_goods_info">
+        <text class="select_goods_name">{{goodDetail.basicInfo.name}}</text>
+        <text class="select_goods_price">￥{{goodDetail.basicInfo.minPrice}}</text>
+      </view>
+      <image class="close" src="/images/popup-close.png" catchtap='closeSize'></image>
+    </view>
+      <view class="size_content" wx:if="{{sizeList}}">
+        <text class="size_text">{{sizeList.name}}</text>
+        <view class="size_list">
+          <block wx:for="{{sizeList.childsCurGoods}}" wx:for-item="size" wx:key="{{id}}">
+            <view class="size_item {{index==indexid?'on':''}}" data-index="{{index}}" catchtap='onsizeTap' data-size="{{size.name}}" data-sizeid="{{sizeList.id}}">
+              <text>{{size.name}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+       <view class="size_content" wx:if="{{colorList}}">
+        <text class="size_text">{{colorList.name}}</text>
+        <view class="size_list">
+          <block wx:for="{{colorList.childsCurGoods}}" wx:for-item="color" wx:key="{{id}}">
+            <view class="size_item {{index==indexid1?'on':''}}" data-index="{{index}}" data-color="{{color.name}}" catchtap='oncolorTap' data-colorid="{{colorList.id}}">
+              <text>{{color.name}}</text>
+            </view>
+          </block>
+        </view>
+        </view>
+        <view class="size_content" wx:if="{{colourList}}">
+        <text class="size_text">{{colourList.name}}</text>
+        <view class="size_list">
+          <block wx:for="{{colourList.childsCurGoods}}" wx:for-item="colour" wx:key="{{id}}">
+            <view class="size_item {{index==indexid2?'on':''}}" data-index="{{index}}" catchtap='oncolourTap' data-colour="{{colour.name}}" data-colourid="{{colourList.id}}">
+              <text>{{colour.name}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      
+    <view class="sell_num_content">
+      <text class="sell_text">购买数量</text>
+      <view class="add_num">
+        <view class="del" catchtap='delnum' data-num="{{num}}">
+          <text>-</text>
+        </view>
+        <view class="sell_num">
+          <text>{{num}}</text>
+        </view>
+        <view class="add" catchtap='addnum' data-num="{{num}}">
+          <text>+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <text class='add_cart' catchtap='addcart'>加入购物车</text>
+</view>

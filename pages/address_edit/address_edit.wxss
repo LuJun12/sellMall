@@ -1,0 +1,5 @@
+/* pages/address_edit/address_edit.wxss */
+@import "../add_address/add_address.wxss";
+.del{
+margin-top: 35rpx!important;
+}

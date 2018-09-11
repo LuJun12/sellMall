@@ -1,0 +1,35 @@
+<!--pages/assess/assess.wxml-->
+<view class='assess_container'>
+  <form bindsubmit="send">
+    <view class='good_detail' wx:for="{{goods}}" wx:for-item="good" wx:key="{{}}">
+      <view class='good_item'>
+        <image src="{{good.pic}}"></image>
+        <view class="good_item_info">
+          <text class="good_item_name">{{good.goodsName}}</text>
+          <text class="good_size">{{good.property}}</text>
+        </view>
+        <view class="good_item_intro">
+          <text class="good_item_price">￥{{good.amount}}</text>
+          <text class="good_item_num">x{{good.number}}</text>
+        </view>
+      </view>
+      <view class='rates'>
+        <radio-group name="goodReputation{{index}}">
+          <label style="margin-right:35rpx;">
+            <radio value="2" checked/>好评</label>
+          <label style="margin-right:35rpx;">
+            <radio value="1" />中评</label>
+          <label style="margin-right:35rpx;">
+            <radio value="0" />差评</label>
+        </radio-group>
+      </view>
+      <view class='remark'>
+        <text>评价</text>
+        <textarea class='remark_textarea' name="goodReputationRemark{{index}}" value='一次愉快的购物'></textarea>
+      </view>
+    </view>
+    <view class='rates_container'>
+    </view>
+    <button class="save_address btn" formType="submit">提交评价</button>
+  </form>
+</view>

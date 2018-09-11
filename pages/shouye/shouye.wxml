@@ -1,0 +1,61 @@
+<view class="shouye_contaoner">
+<view class="search-view"  style="background:{{scrollTop===0?'rgba(0,150,136,0.2)':( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/200+0.3) +')' : 'rgba(105,195,170,1)')}}" wx:if="{{ispull}}">
+    <view class="search-content">
+      <image src="/images/search-pic.png" class="search-icon" />
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索
+      </button>
+    </view>
+  </view>
+  <view class="banner">
+    <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+    <block wx:for="{{banner}}" wx:for-item="item" wx:key="{{}}">
+      <swiper-item >
+        <image catchtap="ongoodsDetail"  src="{{item.picUrl}}" data-goodsid="{{item.businessId}}"></image>
+      </swiper-item>
+     </block>
+    </swiper>
+  </view>
+  <view class="nav">
+    <scroll-view scroll-x="true" class="scroll" style="width:100%">
+      <view class="nav_list" >
+      <block wx:for="{{nav}}" wx:for-item="item" wx:key="{{}}">
+        <view class="nav_item scroll-view-item {{index==indexid?'on':''}}"  data-id="{{item.id}}" data-index="{{index}}" catchtap='onnavTap'>{{item.name}}</view>
+         </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="notice">
+    <text class="notice_text">公告:</text>
+    <text class="notice_content">{{notice}}</text>
+  </view>
+  <view class="cards">
+    <scroll-view scroll-x="true" class="card_scroll">
+      <view class="card_list">
+      <block wx:for="{{cards}}" wx:for-item="item"  wx:key="{{}}" >
+        <view class="card_item" catchtap='discounts' data-id="{{item.id}}">
+          <text class='card_price'>￥{{item.moneyMax}}元</text>
+          <text class="card_text">{{item.name}}</text>
+          <text class="card_text">满{{item.moneyHreshold}}元使用</text>
+          <text class='card_text'>领取{{item.dateEndDays}}天内有效</text>
+        </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='goods'>
+    <view class="goods_list">
+      <block wx:for="{{goods}}" wx:for-item="item" wx:key="{{}}">
+      <view class="goods_item" data-goodsid="{{item.id}}" catchtap="ongoodsDetail">
+        <image src="{{item.pic}}"></image>
+        <text class="goods_name">{{item.name}}</text>
+        <view class="goods_price">
+          <text class="now_price">￥{{item.minPrice}}</text>
+          <text class="old_price" wx:if="{{item.originalPrice && item.originalPrice > 0}}">￥{{item.originalPrice}}</text>
+        </view>
+      </view>
+      </block>
+    </view>
+  </view>
+</view>

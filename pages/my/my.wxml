@@ -1,0 +1,26 @@
+<view class="personal">
+  <view class="my_info">
+    <open-data type="userAvatarUrl" class="avatar"></open-data>
+    <open-data type="userNickName" class="name"></open-data>
+  </view>
+  <view class="content">
+   <view class="list_item">
+      <text class="text">账户余额</text>
+      <text class='m_num'>{{balance}}元</text>
+      <text class='m_num n_num' catchtap='recharge'>充值</text>
+    </view>
+    <view class="list_item" catchtap='go_list'>
+      <text class="text">我的订单</text>
+      <image class="right" src="/images/arrow-right.png"></image>
+    </view>
+    <view class="list_item" catchtap='go_coupon'>
+      <text class="text">我的优惠券</text>
+      <image class="right" src="/images/arrow-right.png"></image>
+    </view>
+    <view class="list_item" catchtap='addressList'>
+      <text class="text">我的收货地址</text>
+      <image class="right" src="/images/arrow-right.png"></image>
+    </view>
+   <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号码</button>
+  </view>
+</view>

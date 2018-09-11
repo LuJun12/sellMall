@@ -1,0 +1,41 @@
+<view class="address_container">
+  <form bindsubmit="bindSave">
+    <view class="input_item">
+      <label>联系人</label>
+      <input type="text" placeholder='姓名' name="linkMan" placeholder-class="placeholder" value="{{edit_name}}"></input>
+    </view>
+    <view class="input_item">
+      <label>手机号码</label>
+      <input type="text" placeholder='11位手机号码' placeholder-class="placeholder" name='mobile' value="{{edit_tel}}"></input>
+    </view>
+    <view class="input_item" bindtap="selectCity">
+            <label class="label">选择地区</label>
+            <picker bindchange="bindPickerProvinceChange" range="{{provinces}}" >
+              <view class="picker {{selProvince=='请选择'?'hui':''}}">
+                {{selProvince}}
+              </view>
+            </picker>
+            <picker bindchange="bindPickerCityChange" range="{{citys}}" >
+              <view class="picker {{selCity=='请选择'?'hui':''}}">
+                {{selCity}}
+              </view>
+            </picker>
+            <picker bindchange="bindPickerChange" range="{{districts}}" >
+              <view class="picker {{selDistrict=='请选择'?'hui':''}}">
+                {{selDistrict}}
+              </view>
+            </picker>
+        </view>
+    <view class="input_item">
+      <label>详细地址</label>
+      <input type="text" name="address" placeholder='街道门牌信息' placeholder-class="placeholder" value="{{edit_address}}"></input>
+    </view>
+    <view class="input_item">
+      <label>邮政编号</label>
+      <input type="text" name="code" placeholder='邮政编码' placeholder-class="placeholder" value="{{edit_code}}"></input>
+    </view>
+    <button class="save_address btn" formType="submit">保存</button>
+     <button class="save_address btn del" catchtap='del_address'>删除</button>
+    <text class="cancel btn">取消</text>
+  </form>
+</view>

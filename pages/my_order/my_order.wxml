@@ -1,0 +1,56 @@
+<view class="order_container">
+
+  <view class='order_nav'>
+    <block wx:for="{{statusType}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="nav_item {{indexid==index?'on':''}}" catchtap='select_nav' data-index="{{index}}">
+        {{item}}
+        <text class='{{dotClass[index]}}'></text>
+      </view>
+    </block>
+  </view>
+  <view class="no-order" wx:if="{{hasorder}}">
+    <image src="/images/no-order.png" class="no-order-img"></image>
+    <view class="text">暂无订单</view>
+  </view>
+  <view class='list_container'>
+    <view class='list_nav' wx:for="{{orderList}}" wx:for-item="item" wx:key="{{}}">
+      <view class='order-date'>
+        <text class='time'>下单时间:{{item.dateAdd}}</text>
+        <text class='statue'>{{item.statusStr}}</text>
+      </view>
+      <view class='order-info'>
+        <view class='order_id'>订单号:{{item.orderNumber}}</view>
+        <view class='remark'>备注：{{item.remark}}</view>
+      </view>
+      <view class='good_item' wx:for="{{goodsMap[item.id]}}" wx:for-item="good" wx:key="{{}}">
+        <image src="{{good.pic}}"></image>
+        <view class="good_item_info">
+          <text class="good_item_name">{{good.goodsName}}</text>
+          <text class="good_size">{{good.property}}</text>
+        </view>
+        <view class="good_item_intro">
+          <text class="good_item_price">￥{{good.amount}}</text>
+          <text class="good_item_num">x{{good.number}}</text>
+        </view>
+      </view>
+      <view class="price-box">
+        <view class="total-price">合计：¥{{item.amount}}</view>
+        <form bindsubmit="pay" report-submit="true" data-id="{{item.id}}" data-index="{{index}}">
+          <view class="pay" wx:if="{{haspay}}">
+            <button class="btn topay-btn cancel-btn" catchtap='cancelOrder' data-id="{{item.id}}">取消订单</button>
+            <button class="btn topay-btn" data-id="{{item.id}}" formType="submit" data-type="pay">马上付款</button>
+          </view>
+        </form>
+        <form bindsubmit="takeGoods" report-submit="true" data-id="{{item.id}}" data-index="{{index}}">
+          <view class="pay" wx:if="{{hassend}}">
+            <button class="btn topay-btn" catchtap='wuliu' data-id="{{item.id}}">查看物流</button>
+            <button class="btn topay-btn"  data-id="{{item.id}}" formType="submit" data-type="confirm">确认收货</button>
+          </view>
+        </form>
+        <view class="pay" wx:if="{{assess}}">
+          <button class="btn topay-btn" catchtap='assess' data-id="{{item.id}}" formType="submit" data-type="assess">评价商品</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

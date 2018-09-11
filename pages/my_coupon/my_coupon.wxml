@@ -1,0 +1,13 @@
+<!--pages/my_coupon/my_coupon.wxml-->
+<view class='coupon_container'>
+  <block wx:for="{{coupons}}" wx:for-item="item" wx:key="{{}}">
+    <view class="card_list">
+      <view class="card_item" catchtap='discounts' data-id="{{item.id}}">
+        <text class='card_price'>￥{{item.money}}元</text>
+        <text class="card_text">{{item.name}}</text>
+        <text class="card_text">满{{item.moneyHreshold}}元使用</text>
+        <text class='card_text'>领取{{dateEnd}}天内有效</text>
+      </view>
+    </view>
+  </block>
+</view>

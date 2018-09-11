@@ -1,0 +1,203 @@
+page {
+  background: #edece8;
+}
+
+.address_detail {
+  display: flex;
+  flex-direction: column;
+  font-size: 29rpx;
+  width: 100%;
+  background: white;
+  padding: 15rpx 0;
+  border-radius: 10rpx;
+}
+
+.user_info {
+  display: flex;
+  margin: 15rpx 0;
+}
+
+.good_text {
+  display: flex;
+}
+
+.user_info image {
+  display: block;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.address_name {
+  margin: 0 15rpx;
+}
+
+.address_info {
+  margin-left: 37rpx;
+}
+
+.add_container {
+  height: 100%;
+  padding: 25rpx;
+}
+
+.add_info {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+  background: white;
+}
+
+.add_info text {
+  margin-left: 113rpx;
+  font-size: 30rpx;
+}
+
+.add_img {
+  width: 65rpx;
+  height: 65rpx;
+  margin-left: 20rpx;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.add_right {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  transform: translate(0, -50%);
+}
+
+.goods_list {
+  background: white;
+  margin-top: 25rpx;
+  padding: 0 20rpx;
+  border-radius: 10rpx;
+}
+
+.goods_list_title {
+  font-size: 30rpx;
+}
+
+.good_item {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  position: relative;
+  font-size: 30rpx;
+  border-top: 1px solid #ccc;
+  margin-top: 20rpx;
+}
+
+.good_item image {
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.good_item_info {
+  margin-left: 140rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 25rpx;
+}
+
+.good_item_name {
+  margin-top: 20rpx;
+}
+
+.good_size {
+  margin-top: 35rpx;
+  color: #ccc;
+}
+
+.good_item_intro {
+  margin-left: 140rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 25rpx;
+  position: absolute;
+  right: 50rpx;
+}
+
+.good_item_price {
+  margin-top: 20rpx;
+}
+
+.good_item_num {
+  margin-top: 35rpx;
+  color: #ccc;
+  margin-left: 20rpx;
+}
+
+.deliver_type_container {
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #ccc;
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+
+.deliver_text {
+  margin-left: 20rpx;
+}
+
+.deliver_type {
+  float: right;
+  margin-right: 20rpx;
+}
+
+.beizhu {
+  background: white;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 25rpx;
+  display: flex;
+  border-radius: 10rpx;
+}
+
+.beizhu text {
+  margin-left: 20rpx;
+}
+
+.beizhu input {
+  width: 80%;
+  margin-left: 50rpx;
+  height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background: white;
+  font-size: 30rpx;
+  line-height: 90rpx;
+}
+
+.footer_text {
+  margin-left: 20rpx;
+}
+
+.price {
+  margin-left: 20rpx;
+}
+
+.get_list {
+  height: 100%;
+  width: 200rpx;
+  float: right;
+  color: white;
+  background: red;
+  line-height: 90rpx;
+  font-size: 31rpx;
+  text-align: center;
+}

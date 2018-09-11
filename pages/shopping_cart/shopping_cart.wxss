@@ -1,0 +1,169 @@
+/* pages/shopping_cart/shopping_cart.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #e6e6e6;
+}
+.on{
+  background: #ccc!important;
+  color: white!important;
+}
+.active{
+    background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
+    background-size: 50rpx; 
+    background-position: 0
+}
+.shopcart_container{
+  background: #F2F2F2;
+  padding: 0 10rpx;
+  height: 100%;
+}
+.no_goods{
+  display: flex;
+  flex-direction: column;
+  padding-top:150rpx;
+}
+.no_goods image{
+  display:block;
+  width: 90rpx;
+  height: 100rpx;
+  margin: 0 auto
+
+}
+.cart_text{
+  font-size: 30rpx;
+  text-align: center;
+  margin:20rpx 0;
+}
+.go_buy{
+  width:283rpx;
+height:80rpx;
+background:red;
+color:white;
+line-height:80rpx;
+text-align:center;
+margin:0 auto;
+font-size:32rpx;
+border-radius:10rpx;
+letter-spacing:2px;
+
+}
+.edit{
+  width: 100%;
+  height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx
+}
+.edit_title{
+  margin-left: 20rpx;
+}
+.edit_text{
+  float: right;
+  margin-right: 20rpx;
+  color: #ccc
+}
+.shopcart_list{
+  width: 100%;
+  padding-bottom: 90rpx;
+}
+.shopcart_list_info{
+  width: 100%;
+}
+.radio{
+  display:flex;
+  flex-direction: row;
+  position: relative;
+  height: 250rpx;
+  border-bottom: 1px solid #ccc;
+  background: white;
+}
+.select_radio{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  left: 25rpx;
+}
+.good_pic{
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  left: 100rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.goods_info{
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  left: 320rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 25rpx;
+}
+.good_text{
+
+  display: flex
+}
+.name{
+  color: black;
+  margin-top: 10rpx
+}
+.size{
+  color: #ccc;
+  margin: 15rpx 0
+}
+.price{
+  color: red;
+}
+.add_num{
+  margin-top: 30rpx;
+  position: absolute;
+  right: 20rpx;
+  display: flex;
+  top: 62%;
+  transform: translate(0,-50%);
+  font-size: 30rpx
+}
+.add_num view{
+  width: 55rpx;
+  height: 50rpx;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 40rpx
+}
+.balance{
+ width:100%;
+height:90rpx;
+position:fixed;
+bottom:0;
+background:white;
+line-height:80rpx;
+font-size:30rpx;
+
+}
+.balance_all{
+  margin-left: 100rpx;
+}
+.istotal{
+  margin-left: 45rpx;
+  display:inline;
+    color: red
+}
+.balance_price{
+  margin-left: 20rpx
+}
+.balance_btn{
+  height:100%;
+width:200rpx;
+float:right;
+color:white;
+background:red;
+line-height:90rpx;
+font-size:31rpx;
+text-align:center;
+
+}

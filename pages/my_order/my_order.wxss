@@ -1,0 +1,116 @@
+/* pages/my_order/my_order.wxss */
+@import "../wait_pay/wait_pay.wxss";
+page{
+  position: relative;
+}
+.dot{
+  width: 15rpx;
+  height: 15rpx;
+  background: red;
+  position: absolute;
+  top: 20rpx;
+  border-radius: 50%
+}
+.order_nav{
+  width: 100%;
+  height: 90rpx;
+  background:white;
+  line-height: 90rpx;
+  display: flex;
+  font-size: 30rpx;
+}
+.no-order{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 88rpx;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #F2f2f2;
+}
+.no-order-img{
+    width:81rpx;
+    height:96rpx;
+    margin-bottom:3rpx;
+    margin-top:179rpx;
+}
+.no-order .text{
+    font-size:28rpx;
+    color:#999999;
+    text-align: center
+}
+.nav_item{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+   border-bottom: 1px solid #ccc;
+}
+.on{
+  color: #FD8D3C;
+  border-bottom: 3px solid #FD8D3C;
+}
+.list_container{
+  width:100%;
+}
+.list_nav{
+  width:94%;
+background-color:#fff;
+margin-top:20rpx;
+padding: 0 3%
+
+}
+.price-box,.order-date,.time,.order_id,.remark{
+height:88rpx; 
+display:flex;
+justify-content:space-between;
+font-size:26rpx;
+color:#000000;
+align-items:center;
+
+}
+.price-box,.order-date,.time{
+  border-bottom: 1px solid #ccc
+}
+.order-info{
+  display: flex;
+  flex-direction: column;
+  font-size:26rpx;
+color:#000000;
+border-bottom: 1px solid #ccc
+}
+.price-box{
+  border: none
+}
+.statue{
+  color: #e64340
+}
+.pay{
+  display: flex;
+  margin-left:200rpx;
+
+}
+.cancel-btn{
+  border:1rpx solid #ccc;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  height:61rpx;
+  font-size:26rpx;
+  line-height:46rpx;
+  background:white;
+}
+.topay-btn{
+  border:1px solid #e64340;
+  padding:5rpx 10rpx;
+  border-radius:10rpx;
+  color:#e64340;
+  margin-left:61rpx;
+  height:61rpx;
+  font-size:26rpx;
+  line-height:46rpx;
+  background:white;
+}
+.good_item{
+  border-top: none;
+  margin: 0
+}

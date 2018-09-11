@@ -1,0 +1,13 @@
+/* pages/my_coupon/my_coupon.wxss */
+@import "../shouye/shouye.wxss";
+.card_list{
+  display:inline-flex;
+height:150rpx;
+margin:0;
+width:96%;
+padding:2%;
+
+}
+.card_item{
+  width: 100%;
+}
